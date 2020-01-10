@@ -1,6 +1,8 @@
 package main.fr.ubordeaux.ui.swing;
 
 import javafx.scene.layout.HBox;
+import main.fr.ubordeaux.domain.model.TicketRepository;
+import main.fr.ubordeaux.infrastructure.inmemory.TicketRepositoryInMemory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +33,9 @@ public class MainAppWindow extends JFrame {
         create.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showInputDialog(null, "Quelle nom pour le ticket ?", JOptionPane.PLAIN_MESSAGE);
+                TicketRepository rep = new TicketRepositoryInMemory();
+                CreateTicketWindow w = new CreateTicketWindow("Création de ticket", rep);
+                w.setVisible(true);
             }
         });
 
