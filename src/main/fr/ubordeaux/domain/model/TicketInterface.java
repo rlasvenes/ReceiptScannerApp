@@ -15,4 +15,5 @@ public interface TicketInterface {
 	public Enseigne enseigne();
 	public Date date();
 	public Prix total();
+	public int id();
 }

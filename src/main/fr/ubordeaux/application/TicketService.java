@@ -1,5 +1,7 @@
 package main.fr.ubordeaux.application;
 
+import main.fr.ubordeaux.domain.model.Ticket;
+
 /**
  * Project :
  * Class : TicketService
@@ -8,4 +10,10 @@ package main.fr.ubordeaux.application;
  */
 
 public class TicketService {
+
+    public void creerTicket() {
+
+    }
+
+    public void f(){}
 }

@@ -96,6 +96,11 @@ public class Ticket implements TicketInterface {
 	}
 
 	@Override
+	public int id() {
+		return this.hashCode();
+	}
+
+	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		StringBuilder out = new StringBuilder();
@@ -117,4 +122,11 @@ public class Ticket implements TicketInterface {
 
 		return out.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(enseigne, date);
+	}
+
+
 }
