@@ -1,13 +1,13 @@
 package main.fr.ubordeaux.domain.model;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 import main.fr.ubordeaux.domain.exception.GestionTicketException;
 import main.fr.ubordeaux.domain.type.Enseigne;
 import main.fr.ubordeaux.domain.type.Prix;
 import main.fr.ubordeaux.domain.type.Quantite;
 import main.fr.ubordeaux.domain.type.Total;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 
@@ -15,7 +15,7 @@ import main.fr.ubordeaux.domain.type.Total;
  * <h2> Aggregate </h2>
  *
  */
-public class Ticket implements TicketInterface {
+public class Ticket implements TicketInterface, Comparable<TicketInterface> {
 	private Map<Integer, EntreeTicket> listeAlimentTicket;
 	private Enseigne enseigne;
 	private Date date;
@@ -129,4 +129,9 @@ public class Ticket implements TicketInterface {
 	}
 
 
+	@Override
+	public int compareTo(TicketInterface o) {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		return sdf.format(date).compareTo(sdf.format(o.date()));
+	}
 }

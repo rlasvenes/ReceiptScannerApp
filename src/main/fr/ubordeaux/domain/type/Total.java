@@ -2,6 +2,8 @@ package main.fr.ubordeaux.domain.type;
 
 import main.fr.ubordeaux.domain.exception.GestionTicketException;
 
+import java.math.BigDecimal;
+
 public class Total {
 	private double total;
 	
@@ -10,7 +12,8 @@ public class Total {
 	}
 	
 	public Total(double total) {
-		this.total = total;
+		BigDecimal val = BigDecimal.valueOf(total).setScale(2, BigDecimal.ROUND_HALF_UP);
+		this.total = val.doubleValue();
 	}
 	
 	public void ajouter(double montant) {

@@ -2,6 +2,8 @@ package main.fr.ubordeaux.domain.type;
 
 import main.fr.ubordeaux.domain.exception.GestionTicketException;
 
+import java.math.BigDecimal;
+
 public class Prix {
 	private final double valeur;
 	
@@ -9,7 +11,8 @@ public class Prix {
 		if (valeur < 0) {
 			throw new GestionTicketException("Erreur, prix invalide (< 0) : " + valeur);
 		}
-		this.valeur = valeur;
+		BigDecimal val = BigDecimal.valueOf(valeur).setScale(2, BigDecimal.ROUND_HALF_UP);
+		this.valeur = val.doubleValue();
 	}
 	
 	public double valeur() {

@@ -33,6 +33,11 @@ public class TicketRepositoryInMemory implements TicketRepository {
     }
 
     @Override
+    public List<TicketInterface> findAll() {
+        return new ArrayList<>(tickets);
+    }
+
+    @Override
     public void persist(TicketInterface ticket) {
         for (TicketInterface t : tickets) {
             if (t.id() == ticket.id()) {
@@ -40,5 +45,6 @@ public class TicketRepositoryInMemory implements TicketRepository {
             }
         }
         tickets.add(ticket);
+        System.out.println("Tickets size : " + tickets.size());
     }
 }

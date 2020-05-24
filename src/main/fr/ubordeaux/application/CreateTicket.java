@@ -1,10 +1,13 @@
 package main.fr.ubordeaux.application;
 
+import main.fr.ubordeaux.domain.model.Aliment;
 import main.fr.ubordeaux.domain.model.Ticket;
 import main.fr.ubordeaux.domain.model.TicketInterface;
 import main.fr.ubordeaux.domain.model.TicketRepository;
 import main.fr.ubordeaux.domain.service.TicketBuilder;
 import main.fr.ubordeaux.domain.type.EnseigneId;
+import main.fr.ubordeaux.domain.type.Prix;
+import main.fr.ubordeaux.domain.type.Quantite;
 
 /**
  * Project :
@@ -37,6 +40,8 @@ public class CreateTicket extends Command {
                             .date(date)
                             .build();
         getRep().persist(ticket);
-        System.out.println("Ticket " + ticket + " created successfully !");
+        System.out.println("Ticket " + ticket + " [" + ticket.id() + "] created successfully !");
+        ticket.ajouterAliment(new Aliment("Tomate", new Prix(2.52)),  new Quantite(2));
+        System.out.println("Ticket " + ticket + " [" + ticket.id() + "] updated successfully !");
     }
 }

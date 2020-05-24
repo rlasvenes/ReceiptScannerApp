@@ -1,5 +1,7 @@
 package main.fr.ubordeaux.domain.model;
 
+import java.util.List;
+
 /**
  * Project :
  * Class : TicketRepository
@@ -9,5 +11,6 @@ package main.fr.ubordeaux.domain.model;
 
 public interface TicketRepository {
     public TicketInterface find(int id);
+    public List<TicketInterface> findAll();
     public void persist(TicketInterface ticket);
 }
